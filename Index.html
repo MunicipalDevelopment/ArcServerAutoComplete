@@ -1,0 +1,113 @@
+<html>
+<head><title>DMD Bot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+
+
+
+		body {
+			padding: 5%;
+			margin: 5%;
+		}
+		html, body, #form {
+			height: 100%;
+		}
+	
+
+
+
+
+
+</style>
+
+<link rel="stylesheet" href="awesomplete.css" /> 
+<script src="awesomplete.min.js"></script>
+<script src="LoadTables.js"></script>
+<script src="functionsAvailable.js"></script>
+<script src="loadArcServerForShow.js"></script>
+
+
+
+</head>	
+
+
+
+
+
+
+<div id="form" >
+DMD: <input type="text" id="question" placeholder="how many ntmp requests?" style="width: 300px;"><br>
+
+<br>
+<br>
+<br>
+<div id="data"></div>
+<br>
+<br>
+<div id="map" style="height: 400px; width:600px"></div>
+</div>
+
+
+
+
+
+<script>
+var q;
+var response = document.getElementById("data")
+map=document.getElementById("map");
+
+
+
+
+
+var input = document.getElementById("question");
+var awesomplete = new Awesomplete(input,{list,filter:Awesomplete.FILTER_STARTSWITH});
+
+input.addEventListener("awesomplete-selectcomplete",function(evt){
+
+	
+	input.value="";
+	idToSend = evt.text.value;
+	functionToCall = functionCall[idToSend];
+	valueToSend = value[idToSend];
+	getData(idToSend,functionToCall,valueToSend);
+
+});
+
+
+
+
+
+
+function getData(id,whatfunction,value){
+ 
+
+      switch(whatfunction) {
+   	 	case "map":
+    	 		showMap(value); 
+     	 	  	break;
+    		case "how":
+       			how(value);
+     	 	  	break;
+		case "call":
+		  	call(value);
+     	 	  	break;
+		case "project":
+			project(value);
+			break;
+
+	
+		default:
+       		console.log(id);
+		console.log(whatfunction);
+		console.log(value);
+
+	}//switch
+
+
+}
+
+</script>
+
+</body>
+</html>
