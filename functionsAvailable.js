@@ -2,7 +2,7 @@
 
 function showMap(value){
         response.innerHTML="";
-	var url = '<iframe src="http://SERVERNAME/dmdbot/showme.html?m='+value+'" width="600" height="400"></iframe>';
+	var url = '<iframe src="showme.html?m='+value+'" width="600" height="400"></iframe>';
 	map.innerHTML=url;
 	
 	
